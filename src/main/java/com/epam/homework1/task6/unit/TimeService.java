@@ -5,11 +5,15 @@ public class TimeService {
     private static final int secondsInHour = 3600;
     private static final int secondsInMinute = 60;
 
-    public static void calculateTime(Long seconds) {
+    public static long[] calculateTime(Long seconds) {
         long hours = seconds / secondsInHour;
         long minutes = (seconds - hours * secondsInHour) / secondsInMinute;
+
         seconds = seconds - (hours * secondsInHour) - (minutes * secondsInMinute);
-        System.out.println("hours = " + hours + "\tminutes = " + minutes + "\tseconds = " + seconds);
+
+        long[] time = new long[]{hours, minutes, seconds};
+
+        return time;
     }
 
 }
