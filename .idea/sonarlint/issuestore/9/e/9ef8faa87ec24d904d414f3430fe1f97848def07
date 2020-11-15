@@ -1,0 +1,6 @@
+
+U	java:S106"9Replace this use of System.out or System.err by a logger.(­Ø½Ç8õ‚»Ü.
+D
+java:S2189""Correct this loop's end condition.(ÅáÍ½ÿÿÿÿÿ8üí½Ü.
+[
+java:S2251"9"i" is incremented and will never reach "stop condition".(ÅáÍ½ÿÿÿÿÿ8üí½Ü.
