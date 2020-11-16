@@ -6,11 +6,14 @@ import com.epam.ball.entity.Color;
 
 public class BallService {
 
-    public void kickBallIntoBucket(Bucket bucket, Ball ball) {
+    public boolean kickBallIntoBucket(Bucket bucket, Ball ball) {
 
-        if (bucket.getBallIntoBucket() < 10) {
+        if (bucket.getBallIntoBucket() < bucket.getBallCapacity()) {
             bucket.setBallIntoBucket(ball);
+            return true;
         }
+
+        return false;
     }
 
     public Ball getBallOutOfBucket(Bucket bucket) {
@@ -59,7 +62,7 @@ public class BallService {
         int countOfBall = 0;
 
         for(int i = 0; i < bucket.getBallCapacity(); i++){
-            if(bucket.searchBallById(i) != null){
+            if(bucket.searchBallById(i) != null && bucket.searchBallById(i).getColor() == color){
                 countOfBall++;
             }
         }
