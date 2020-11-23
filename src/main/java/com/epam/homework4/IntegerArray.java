@@ -2,16 +2,17 @@ package com.epam.homework4;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Random;
 
 public class IntegerArray {
 
     private static final int DEFAULT_SIZE = 10;
 
-    private static final Integer[] EMPTY_ARRAY = {};
+    private static final int[] EMPTY_ARRAY = {};
 
     private int size;
 
-    private Integer[] array;
+    private int[] array;
 
     public IntegerArray() {
         array = EMPTY_ARRAY;
@@ -19,7 +20,7 @@ public class IntegerArray {
 
     public IntegerArray(int size) {
         if (size > 0) {
-            array = new Integer[size];
+            array = new int[size];
         } else if (size == 0) {
             array = EMPTY_ARRAY;
         } else {
@@ -188,17 +189,34 @@ public class IntegerArray {
 
         for(int i = 0; i < array.length; i++){
             if(array[i] > 99 && array[i] < 1000){
+
                 firstDigit = array[i] / 100;
                 secondDigit = (array[i] / 10) - (firstDigit * 10);
                 thirdDigit = array[i] % 10;
 
                 if(firstDigit != secondDigit && firstDigit != thirdDigit && secondDigit != thirdDigit){
+
                     numbers[counter++] = array[i];
+
                 }
             }
         }
 
         return numbers;
+    }
+
+    public int[] getArrayWithRandomNumbers(int bound){
+        if(array.length <= 0){
+            throw new IllegalArgumentException("Array length is less then 0");
+        }
+
+        Random random = new Random();
+
+        for(int i = 0; i < array.length; i++){
+            array[i] = random.nextInt(bound);
+        }
+
+        return array;
     }
 
     @Override
